@@ -67,7 +67,7 @@ const hkAutomationUtility = {
         const nextTapsCount = this.getNextTapsCount(10, Math.floor(this.appState.maxTaps / this.appState.earnPerTap) - 1);
         
         // Wait for full charge
-        const msToWait = Math.floor((this.appState.maxTaps - this.appState.availableTaps) / (this.appState.tapsRecoverPerSec /* should be 3 */ + this.appState.earnPassivePerSec) * 1000) + 1000 /* extra time */;
+        const msToWait = Math.floor((this.appState.maxTaps - this.appState.availableTaps) / this.appState.tapsRecoverPerSec /* should be 3 */ * 1000) + 1000 /* extra time */;
         
         this.log("Energy: " + this.appState.availableTaps);
         this.log(`Waiting ${msToWait / 1000} s for recharge. Prepare to send ${nextTapsCount} taps.`);
